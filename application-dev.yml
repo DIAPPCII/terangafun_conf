@@ -3,6 +3,13 @@ spring:
     url: jdbc:mysql://localhost:3306/terangafun?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
     username: root
     password: 
+    #Hikari conf
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 10
+      idle-timeout: 60000
+      minimum-idle: 2
+      leak-detection-threshold: 60000
   jpa:
     properties:
       hibernate:
@@ -10,15 +17,6 @@ spring:
 # Hibernate ddl auto (create, create-drop, validate, update)
     hibernate: 
       ddl-auto: update
-#Hikari conf
-spring:
-  datasource: 
-    hikari:
-      connection-timeout: 60000
-      maximum-pool-size: 10
-      idle-timeout: 60000
-      minimum-idle: 2
-      leak-detection-threshold: 60000
 #logging.level.root=TRACE
 logging:
   level:
